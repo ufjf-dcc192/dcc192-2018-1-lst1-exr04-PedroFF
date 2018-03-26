@@ -30,7 +30,7 @@ public class JurosCompostos extends HttpServlet {
         } else{ valInicial = 5000.0;}
         double taxa;
         if(request.getParameter("taxa")!= null && !"".equals(request.getParameter("taxa"))){
-            taxa = Double.parseDouble(request.getParameter("taxa"));
+            taxa = Double.parseDouble(request.getParameter("taxa"))/100;
         }else{taxa = 1/100;}
         int meses;
             if(request.getParameter("meses")!= null && !"".equals(request.getParameter("meses"))){
