@@ -36,7 +36,7 @@ public class JurosCompostos extends HttpServlet {
             if(request.getParameter("meses")!= null && !"".equals(request.getParameter("meses"))){
                  meses = Integer.parseInt(request.getParameter("meses"));
         }else{meses = 12;}
-        double valorFinal = valInicial*(1+Math.pow(taxa, meses));
+        double valorFinal = valInicial*(Math.pow(1+taxa, meses));
         out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head>");
@@ -51,7 +51,7 @@ public class JurosCompostos extends HttpServlet {
         out.println("<input type='submit' />");
         out.println("<input type='reset' />");
         out.println("</form>");
-        out.println("<p>Para um investimento inicial de R$"+valInicial+" a uma taxa de juros compostos de "+taxa+"% ao mês,"
+        out.println("<p>Para um investimento inicial de R$"+valInicial+" a uma taxa de juros compostos de "+taxa*100+"% ao mês,"
                 + " você terá R$"+valorFinal+" ao final de "+meses+" meses!</p>");
         if((valorFinal-valInicial)/meses >200){
             out.println("<p style='color:Green'>Bom Negócio!</p>");
